@@ -413,10 +413,6 @@ def draw():
             
         if ballBottom + 2 >= rectY and ballBottom < rectY + 20  and ballX > paddleLeftCorner and ballX < paddleRightCorner: 
             directionY = - speedY
-            print("hit")
-            
-        # if ballY < rectY and ballY > rectY - 10  and ballX > paddleLeftCorner and ballX < paddleRightCorner: 
-        #     directionY = - speedY
             
         #Creates ball and paddle     
         stroke(0,255,0)
