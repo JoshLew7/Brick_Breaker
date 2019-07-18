@@ -43,10 +43,11 @@ Start = False
 Ready = False
 
 #Score + Scoreboard
-score = 0 
+score = 0
 
 def setup():
     global baseSize
+    global score
     global Easy,Medium,Hard,Start,Menu,Ready
     global ballX,ballY,rectX,rectY,rectangleWidth
     global paddleLength,paddleWidth,paddlePosition
@@ -59,6 +60,7 @@ def setup():
     
 def draw():
     global baseSize
+    global score
     global Easy,Medium,Hard,Start,Menu,Ready
     global ballX,ballY,rectX,rectY,rectangleWidth
     global paddleLength,paddleWidth,paddlePosition
@@ -138,6 +140,10 @@ def draw():
         fill(r,g,b)
         startButton = rect(237,475,25,25)
         startButtonPressed = mousePressed and mouseX >  237 and mouseX < 262 and mouseY > 475 and mouseY < 500
+        score = 0
+        fill(255)
+        textSize(25)
+        text(score, 480,490)
         
         if(brick1 == True):
             stroke(255,0,0)
@@ -252,6 +258,10 @@ def draw():
         g = 0
         b = 0
         
+        fill(255)
+        textSize(25)
+        text(score, 480,490)
+        
         if(brick1 == True):
             stroke(255,0,0)
             fill(255,255,255)
@@ -345,51 +355,52 @@ def draw():
         if(ballTop < 50 and ballX < 100 and  brick1 == True):
             brick1 = False
             directionY = + speedY
-    
+            score = score + 1
         
         if(ballTop < 50 and ballX > 100 and ballX < 200 and brick2 == True):
             brick2 = False
             directionY = + speedY
-    
-        
+            score = score + 1
+
         if(ballTop < 50 and ballX > 200 and ballX <  300 and brick3 == True):
             brick3 = False
             directionY = + speedY
-    
+            score = score + 1
             
         if(ballTop < 50 and ballX > 300 and ballX <  400 and brick4 == True):
             brick4 = False
             directionY = + speedY
-    
+            score = score + 1
             
         if(ballTop < 50 and ballX > 400 and ballX <  500 and brick5 == True):
             brick5 = False
             directionY = + speedY
+            score = score + 1
             
         if(ballTop < 100 and ballX < 100 and  brick6 == True):
             brick6 = False
             directionY = + speedY
-    
+            score = score + 1
         
         if(ballTop < 100 and ballX > 100 and ballX < 200 and brick7 == True):
             brick7 = False
             directionY = + speedY
-    
+            score = score + 1
         
         if(ballTop < 100 and ballX > 200 and ballX <  300 and brick8 == True):
             brick8 = False
             directionY = + speedY
-    
+            score = score + 1    
             
         if(ballTop < 100 and ballX > 300 and ballX <  400 and brick9 == True):
             brick9 = False
             directionY = + speedY
-    
+            score = score + 1    
             
         if(ballTop < 100 and ballX > 400 and ballX <  500 and brick10 == True):
             brick10 = False
             directionY = + speedY
-    
+            score = score + 1    
         
         ballX = ballX + directionX
         ballY = ballY + directionY
@@ -411,9 +422,9 @@ def draw():
         elif(rectX > 401):
             rectX = 399
             
-        if ballBottom + 2 >= rectY and ballBottom < rectY + 20  and ballX > paddleLeftCorner and ballX < paddleRightCorner: 
+        if ballBottom + 3 >= rectY and ballBottom < rectY + 20  and ballX > paddleLeftCorner and ballX < paddleRightCorner: 
             directionY = - speedY
-            
+                        
         #Creates ball and paddle     
         stroke(0,255,0)
         fill(ballColor) 
